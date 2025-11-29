@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Prank</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #fafafa;
+    padding-top: 100px;
+    margin: 0;
+  }
+  #msg {
+    font-size: 40px;
+    margin-bottom: 25px;
+  }
+  button {
+    padding: 16px 30px;
+    font-size: 22px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div id="msg">Click Me</div>
+<button onclick="nextMsg()">Click</button>
+
+<script>
+let msgs = ["Click Me","Hi","May","Gusto","Akong","Sabihin","Sayo"];
+let i = 0;
+
+function goFullscreen() {
+  const el = document.documentElement;
+  if (el.requestFullscreen) el.requestFullscreen().catch(()=>{});
+}
+
+function nextMsg() {
+  // Fullscreen on first click
+  if (i === 0) goFullscreen();
+
+  i++;
+  if (i < msgs.length) {
+    document.getElementById("msg").innerText = msgs[i];
+  } else {
+    // 10x pop-up
+    for(let j=0; j<10; j++){
+      alert("TANG INA MO");
+    }
+    i = 0;
+    document.getElementById("msg").innerText = msgs[0];
+  }
+}
+</script>
+
+</body>
+</html>
